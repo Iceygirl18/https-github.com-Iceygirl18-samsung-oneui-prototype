@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Samsung One UI Redesign — Prototype</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- LEFT: Flow Map -->
+  <div class="flow-panel">
+    <div class="flow-title">Flow</div>
+    <div class="flow-item active" id="flow-0" onclick="goTo('home')">
+      <div class="flow-num">1</div><span>Home Screen</span>
+    </div>
+    <div class="flow-item" id="flow-1" onclick="goTo('search')">
+      <div class="flow-num">2</div><span>Search</span>
+    </div>
+    <div class="flow-item" id="flow-2" onclick="goTo('search_detail')">
+      <div class="flow-num">3</div><span>Search Detail</span>
+    </div>
+    <div class="flow-item" id="flow-3" onclick="goTo('app_library')">
+      <div class="flow-num">4</div><span>App Library</span>
+    </div>
+    <div class="flow-item" id="flow-4" onclick="goTo('edit_pinned')">
+      <div class="flow-num">5</div><span>Edit Pinned</span>
+    </div>
+    <div class="flow-item" id="flow-5" onclick="goTo('quick_settings')">
+      <div class="flow-num">6</div><span>Quick Settings</span>
+    </div>
+    <div class="flow-item" id="flow-6" onclick="goTo('qs_expanded')">
+      <div class="flow-num">7</div><span>QS Expanded</span>
+    </div>
+    <div class="flow-item" id="flow-7" onclick="goTo('edit_qs')">
+      <div class="flow-num">8</div><span>Edit QS</span>
+    </div>
+    <div class="flow-item" id="flow-8" onclick="goTo('emergency')">
+      <div class="flow-num">9</div><span>Emergency</span>
+    </div>
+  </div>
+
+  <!-- CENTER: Phone -->
+  <div class="phone-wrap">
+    <div class="phone-shell">
+      <div class="phone-notch"></div>
+      <div class="screen-container" id="screen-container">
+
+        <!-- ═══════════════════════════════ -->
+        <!-- SCREEN 1: HOME                  -->
+        <!-- ═══════════════════════════════ -->
+        <div class="screen active" id="s-home">
+          <div class="status-bar">
+            <span>14:42</span>
+            <span class="status-icons">☀ 73° &nbsp; ▲ ))) 74</span>
+          </div>
+          <div class="home-clock">14:42</div>
+          <div class="home-date">Thursday, Apr 26</div>
+          <div class="home-weather">☀️ &nbsp;73° · Clear Sky</div>
+
+          <div class="search-bar tap" data-to="search">
+            <span class="search-icon">🔍</span>
+            <span class="search-placeholder">Search apps, contacts, settings...</span>
+            <span class="search-mic">🎤</span>
+          </div>
+
+          <div class="section-label">FREQUENT APPS</div>
+          <div class="frequent-apps">
+            <div class="app-icon-sm"><div class="app-ico" style="background:#f59e0b">M</div><div class="app-name">Miro</div></div>
+            <div class="app-icon-sm"><div class="app-ico" style="background:#25d366">W</div><div class="app-name">WhatsApp</div></div>
+            <div class="app-icon-sm"><div class="app-ico" style="background:#ea4335">G</div><div class="app-name">Gmail</div></div>
+            <div class="app-icon-sm"><div class="app-ico" style="background:#0077b5">in</div><div class="app-name">LinkedIn</div></div>
+            <div class="app-icon-sm"><div class="app-ico" style="background:#4285f4">📍</div><div class="app-name">Maps</div></div>
+          </div>
+
+          <div class="section-label">CORE ACTIONS</div>
+          <div class="core-grid">
+            <div class="core-btn" style="border-color:#7c5cfc">
+              <div class="core-icon">👤</div>
+              <div class="core-label">Contacts</div>
+            </div>
+            <div class="core-btn" style="border-color:#7c5cfc">
+              <div class="core-icon">💬</div>
+              <div class="core-label">Messages</div>
+            </div>
+            <div class="core-btn" style="border-color:#f59e0b; position:relative">
+              <div class="notif-dot"></div>
+              <div class="core-icon">✉️</div>
+              <div class="core-label">Email</div>
+            </div>
+            <div class="core-btn" style="border-color:#34d399">
+              <div class="core-icon">📞</div>
+              <div class="core-label">Phone</div>
+            </div>
+            <div class="core-btn tap" data-to="app_library" style="border-color:#ff3b55">
+              <div class="core-icon">⊞</div>
+              <div class="core-label">App Library</div>
+            </div>
+            <div class="core-btn" style="border-color:#3b82f6">
+              <div class="core-icon">🌐</div>
+              <div class="core-label">Internet</div>
+            </div>
+          </div>
+
+          <div class="emergency-bar tap" data-to="emergency">
+            <span class="emg-icon">📞</span>
+            <span class="emg-text">Emergency</span>
+          </div>
+
+          <div class="nav-bar">
+            <span>|||</span><span>⬜</span><span>‹</span>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- SCREEN 2: SEARCH               -->
+        <!-- ═══════════════════════════════ -->
+        <div class="screen" id="s-search">
+          <div class="status-bar"><span>14:42</span><span class="status-icons">▲ ))) 74</span></div>
+
+          <div class="search-bar active-search tap" data-to="search_detail">
+            <span class="search-icon">🔍</span>
+            <input class="search-input" placeholder="sp" readonly/>
+            <span class="search-cancel">🎤</span>
+          </div>
+
+          <div class="filter-tabs">
+            <div class="filter-tab active">All</div>
+            <div class="filter-tab">Apps</div>
+            <div class="filter-tab">Settings</div>
+            <div class="filter-tab">Contacts</div>
+            <div class="filter-tab">Files</div>
+          </div>
+
+          <div class="results-section-label">Top Results</div>
+          <div class="result-list">
+            <div class="result-item">
+              <div class="result-ico" style="background:#1db954">🎵</div>
+              <div class="result-text"><div class="result-name">Spotify</div><div class="result-sub">App</div></div>
+              <span class="result-arrow">↗</span>
+            </div>
+            <div class="result-item">
+              <div class="result-ico" style="background:#333">⚙️</div>
+              <div class="result-text"><div class="result-name">Settings</div><div class="result-sub">System</div></div>
+              <span class="result-arrow">↗</span>
+            </div>
+            <div class="result-item">
+              <div class="result-ico" style="background:#0070f3">S</div>
+              <div class="result-text"><div class="result-name">Samsung Internet</div><div class="result-sub">App</div></div>
+              <span class="result-arrow">↗</span>
+            </div>
+          </div>
+
+          <div class="results-section-label">Apps</div>
+          <div class="result-list">
+            <div class="result-item">
+              <div class="result-ico" style="background:#1db954">🎵</div>
+              <div class="result-text"><div class="result-name">Spotify</div><div class="result-sub">App</div></div>
+              <span class="result-arrow">↗</span>
+            </div>
+            <div class="result-item">
+              <div class="result-ico" style="background:#555">⚡</div>
+              <div class="result-text"><div class="result-name">Speedtest</div><div class="result-sub">App</div></div>
+              <span class="result-arrow">↗</span>
+            </div>
+            <div class="result-item">
+              <div class="result-ico" style="background:#ffcc00">👻</div>
+              <div class="result-text"><div class="result-name">Snapchat</div><div class="result-sub">App</div></div>
+              <span class="result-arrow">↗</span>
+            </div>
+          </div>
+
+          <div class="back-row">
+            <div class="back-btn tap" data-to="home">← Back</div>
+          </div>
+          <div class="nav-bar"><span>|||</span><span>⬜</span><span>‹</span></div>
+        </div>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- SCREEN 3: SEARCH DETAIL        -->
+        <!-- ═══════════════════════════════ -->
+        <div class="screen" id="s-search_detail">
+          <div class="status-bar"><span>14:42</span><span class="status-icons">▲ ))) 74</span></div>
+
+          <div class="search-bar active-search">
+            <span class="search-icon">🔍</span>
+            <input class="search-input" value="sp" readonly/>
+            <span>✕</span>&nbsp;<span class="purple-text">Cancel</span>
+          </div>
+
+          <div class="filter-tabs">
+            <div class="filter-tab active">Apps</div>
+            <div class="filter-tab">Contacts</div>
+            <div class="filter-tab">Settings</div>
+            <div class="filter-tab">Files</div>
+          </div>
+
+          <div class="results-section-label">Top Results</div>
+          <div class="result-list">
+            <div class="result-item">
+              <div class="result-ico" style="background:#1db954">🎵</div>
+              <div class="result-text"><div class="result-name purple-text">Spo<span style="color:var(--t)">tify</span></div><div class="result-sub">App</div></div>
+              <span class="result-arrow">↗</span>
+            </div>
+            <div class="result-item">
+              <div class="result-ico" style="background:#555">⚡</div>
+              <div class="result-text"><div class="result-name purple-text">Spe<span style="color:var(--t)">edtest</span></div><div class="result-sub">App</div></div>
+              <span class="result-arrow">↗</span>
+            </div>
+            <div class="result-item">
+              <div class="result-ico" style="background:#ffcc00">👻</div>
+              <div class="result-text"><div class="result-name purple-text">Sna<span style="color:var(--t)">pchat</span></div><div class="result-sub">App</div></div>
+              <span class="result-arrow">↗</span>
+            </div>
+          </div>
+
+          <div class="results-section-label">Recent Searches</div>
+          <div class="result-list">
+            <div class="result-item">
+              <span style="font-size:.85rem;margin-right:.5rem">🕐</span>
+              <div class="result-text"><div class="result-name">spotify</div></div>
+              <span style="color:var(--t3);font-size:.8rem">↗</span>
+            </div>
+            <div class="result-item">
+              <span style="font-size:.85rem;margin-right:.5rem">🕐</span>
+              <div class="result-text"><div class="result-name">camera</div></div>
+              <span style="color:var(--t3);font-size:.8rem">↗</span>
+            </div>
+            <div class="result-item">
+              <span style="font-size:.85rem;margin-right:.5rem">🕐</span>
+              <div class="result-text"><div class="result-name">wifi settings</div></div>
+              <span style="color:var(--t3);font-size:.8rem">↗</span>
+            </div>
+          </div>
+
+          <!-- Keyboard -->
+          <div class="keyboard">
+            <div class="kb-row"><div class="kb-key">q</div><div class="kb-key">w</div><div class="kb-key">e</div><div class="kb-key">r</div><div class="kb-key">t</div><div class="kb-key">y</div><div class="kb-key">u</div><div class="kb-key">i</div><div class="kb-key">o</div><div class="kb-key">p</div></div>
+            <div class="kb-row"><div class="kb-key">a</div><div class="kb-key">s</div><div class="kb-key">d</div><div class="kb-key">f</div><div class="kb-key">g</div><div class="kb-key">h</div><div class="kb-key">j</div><div class="kb-key">k</div><div class="kb-key">l</div></div>
+            <div class="kb-row"><div class="kb-key wide">⇧</div><div class="kb-key">z</div><div class="kb-key">x</div><div class="kb-key">c</div><div class="kb-key">v</div><div class="kb-key">b</div><div class="kb-key">n</div><div class="kb-key">m</div><div class="kb-key wide">⌫</div></div>
+            <div class="kb-row"><div class="kb-key wide">?123</div><div class="kb-key space">Search</div><div class="kb-key-search tap" data-to="home">🔍</div></div>
+          </div>
+          <div class="nav-bar"><span>|||</span><span>⬜</span><span>‹</span></div>
+        </div>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- SCREEN 4: APP LIBRARY          -->
+        <!-- ═══════════════════════════════ -->
+        <div class="screen" id="s-app_library">
+          <div class="status-bar"><span>14:42 73°</span><span class="status-icons">▲ ))) 74</span></div>
+
+          <div class="app-lib-header">
+            <span class="app-lib-title">App Library</span>
+            <div style="display:flex;gap:.6rem;align-items:center">
+              <span>🔍</span>
+              <span class="purple-text tap" data-to="edit_pinned">Edit</span>
+            </div>
+          </div>
+
+          <div class="search-bar small-search">
+            <span>🔍</span>
+            <span style="color:var(--t3);font-size:.8rem">Search apps</span>
+          </div>
+
+          <div class="pinned-label">Pinned</div>
+          <div class="pinned-row">
+            <div class="pinned-app"><div class="app-ico" style="background:#25d366">W</div><div class="app-name">WhatsApp</div></div>
+            <div class="pinned-app"><div class="app-ico" style="background:#ea4335">G</div><div class="app-name">Gmail</div></div>
+            <div class="pinned-app"><div class="app-ico" style="background:#4285f4">C</div><div class="app-name">Chrome</div></div>
+            <div class="pinned-app"><div class="app-ico" style="background:#0077b5">in</div><div class="app-name">LinkedIn</div></div>
+          </div>
+
+          <!-- Alpha list -->
+          <div class="alpha-list-wrap">
+            <div class="alpha-list">
+              <div class="alpha-section"><div class="alpha-letter">A</div>
+                <div class="alpha-app-item"><div class="alpha-app-ico" style="background:#e53e3e">A</div><span>Adobe Acrobat</span></div>
+                <div class="alpha-app-item"><div class="alpha-app-ico" style="background:#ed8936">A</div><span>Adobe Express</span></div>
+                <div class="alpha-app-item"><div class="alpha-app-ico" style="background:#3182ce">A</div><span>Authenticator</span></div>
+              </div>
+              <div class="alpha-section"><div class="alpha-letter">B</div>
+                <div class="alpha-app-item"><div class="alpha-app-ico" style="background:#6b46c1">B</div><span>Bixby</span></div>
+                <div class="alpha-app-item"><div class="alpha-app-ico" style="background:#2d3748">B</div><span>Bixby Vision</span></div>
+              </div>
+              <div class="alpha-section"><div class="alpha-letter">C</div>
+                <div class="alpha-app-item"><div class="alpha-app-ico" style="background:#38a169">C</div><span>Calculator</span></div>
+                <div class="alpha-app-item"><div class="alpha-app-ico" style="background:#e53e3e">C</div><span>Calendar</span></div>
+                <div class="alpha-app-item"><div class="alpha-app-ico" style="background:#718096">C</div><span>Camera</span></div>
+              </div>
+            </div>
+            <!-- A-Z Rail -->
+            <div class="az-rail">
+              <div class="az-letter active-letter">A</div>
+              <div class="az-letter">B</div><div class="az-letter">C</div>
+              <div class="az-letter">D</div><div class="az-letter">E</div>
+              <div class="az-letter">F</div><div class="az-letter">G</div>
+              <div class="az-letter">H</div><div class="az-letter">I</div>
+              <div class="az-letter">J</div><div class="az-letter">K</div>
+              <div class="az-letter">L</div><div class="az-letter">M</div>
+              <div class="az-letter">N</div><div class="az-letter">O</div>
+              <div class="az-letter">P</div><div class="az-letter">Q</div>
+              <div class="az-letter">R</div><div class="az-letter">S</div>
+              <div class="az-letter">T</div><div class="az-letter">U</div>
+              <div class="az-letter">V</div><div class="az-letter">W</div>
+              <div class="az-letter">X</div><div class="az-letter">Y</div>
+              <div class="az-letter">Z</div>
+            </div>
+          </div>
+
+          <div class="nav-bar"><span>|||</span><span>⬜</span><span class="tap" data-to="home">‹</span></div>
+        </div>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- SCREEN 5: EDIT PINNED          -->
+        <!-- ═══════════════════════════════ -->
+        <div class="screen" id="s-edit_pinned">
+          <div class="status-bar"><span>14:42 73°</span><span class="status-icons">▲ ))) 100%</span></div>
+
+          <div class="page-header">
+            <span class="tap" data-to="app_library">←</span>
+            <span class="page-title">Edit pinned apps</span>
+            <span class="purple-text tap" data-to="app_library">Done</span>
+          </div>
+          <div class="page-subtitle">Add or remove apps from your pinned section.</div>
+
+          <div class="pinned-label">Pinned (5)</div>
+          <div class="edit-pinned-row">
+            <div class="edit-pin-app"><div class="remove-btn">–</div><div class="app-ico" style="background:#25d366">W</div><div class="app-name">WhatsApp</div></div>
+            <div class="edit-pin-app"><div class="remove-btn">–</div><div class="app-ico" style="background:#ea4335">G</div><div class="app-name">Gmail</div></div>
+            <div class="edit-pin-app"><div class="remove-btn">–</div><div class="app-ico" style="background:#0077b5">in</div><div class="app-name">LinkedIn</div></div>
+            <div class="edit-pin-app"><div class="remove-btn">–</div><div class="app-ico" style="background:#4285f4">C</div><div class="app-name">Chrome</div></div>
+            <div class="edit-pin-app add-slot"><div class="add-btn">+</div><div class="app-name">Add</div></div>
+          </div>
+
+          <div class="pinned-label" style="margin-top:.8rem">All apps</div>
+          <div class="az-rail-inline">
+            <span class="az-inline active-letter">A</span>
+          </div>
+          <div class="all-apps-list">
+            <div class="all-app-item"><div class="alpha-app-ico" style="background:#e53e3e">A</div><span>AR Zone</span><div class="add-circle">+</div></div>
+            <div class="all-app-item"><div class="alpha-app-ico" style="background:#3182ce">A</div><span>Authenticator</span><div class="add-circle">+</div></div>
+            <div class="all-app-item"><div class="alpha-app-ico" style="background:#e53e3e">A</div><span>Airtel</span><div class="add-circle">+</div></div>
+            <div class="all-app-item"><div class="alpha-app-ico" style="background:#6b46c1">B</div><span>Bixby</span><div class="add-circle">+</div></div>
+            <div class="all-app-item"><div class="alpha-app-ico" style="background:#38a169">C</div><span>Calculator</span><div class="add-circle">+</div></div>
+            <div class="all-app-item"><div class="alpha-app-ico" style="background:#718096">C</div><span>Camera</span><div class="add-circle">+</div></div>
+          </div>
+          <div class="nav-bar"><span>|||</span><span>⬜</span><span>‹</span></div>
+        </div>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- SCREEN 6: QUICK SETTINGS       -->
+        <!-- ═══════════════════════════════ -->
+        <div class="screen" id="s-quick_settings">
+          <div class="status-bar"><span>14:42 73°</span><span class="status-icons">))) 74</span></div>
+
+          <div class="emergency-slide tap" data-to="emergency">
+            <span class="emg-slide-icon">📞</span>
+            <span>Slide for emergency</span>
+            <span>›</span>
+          </div>
+
+          <div class="qs-header">
+            <span class="qs-title">Quick Settings</span>
+            <div class="qs-edit-btn tap" data-to="qs_expanded">⊞ &nbsp;Edit</div>
+          </div>
+
+          <!-- Connectivity -->
+          <div class="qs-category green-cat">
+            <div class="qs-cat-label green-label">▲ Connectivity</div>
+            <div class="qs-toggle-row">
+              <div class="qs-toggle active-toggle green-toggle"><div class="toggle-icon">📶</div><div class="toggle-name">Wi-Fi</div></div>
+              <div class="qs-toggle"><div class="toggle-icon">⎋</div><div class="toggle-name">Bluetooth</div></div>
+              <div class="qs-toggle"><div class="toggle-icon">✈</div><div class="toggle-name">Airplane</div></div>
+              <div class="qs-toggle"><div class="toggle-icon">N</div><div class="toggle-name">NFC</div></div>
+            </div>
+          </div>
+
+          <!-- Device Control -->
+          <div class="qs-category yellow-cat">
+            <div class="qs-cat-label yellow-label">⚙ Device Control</div>
+            <div class="qs-toggle-row">
+              <div class="qs-toggle active-toggle yellow-toggle"><div class="toggle-icon">☀</div><div class="toggle-name">Brightness</div></div>
+              <div class="qs-toggle"><div class="toggle-icon">🔊</div><div class="toggle-name">Volume</div></div>
+              <div class="qs-toggle"><div class="toggle-icon">📍</div><div class="toggle-name">Location</div></div>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div class="qs-category purple-cat">
+            <div class="qs-cat-label purple-label">✂ Tools</div>
+            <div class="qs-toggle-row">
+              <div class="qs-toggle"><div class="toggle-icon">📷</div><div class="toggle-name">Camera</div></div>
+              <div class="qs-toggle"><div class="toggle-icon">🖼</div><div class="toggle-name">Gallery</div></div>
+              <div class="qs-toggle"><div class="toggle-icon">🔦</div><div class="toggle-name">Flashlight</div></div>
+              <div class="qs-toggle"><div class="toggle-icon">📅</div><div class="toggle-name">Calendar</div></div>
+            </div>
+          </div>
+
+          <div class="qs-search tap" data-to="search">
+            <span>🔍</span>
+            <span style="color:var(--t3)">Search settings and more</span>
+          </div>
+
+          <div class="nav-bar"><span>|||</span><span>⬜</span><span class="tap" data-to="home">‹</span></div>
+        </div>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- SCREEN 7: QS EXPANDED          -->
+        <!-- ═══════════════════════════════ -->
+        <div class="screen" id="s-qs_expanded">
+          <div class="status-bar"><span>14:42</span><span class="status-icons">))) 100%</span></div>
+          <div class="exp-date">Thu, Apr 26</div>
+          <div class="exp-icons-row">
+            <span>✏</span><span>⏻</span><span>⚙</span>
+          </div>
+
+          <div class="suggested-box">
+            <div class="sug-header"><span class="purple-text">✦ Suggested for you</span><span class="sug-more">Learn more ›</span></div>
+            <div class="sug-row">
+              <div class="sug-tog"><div class="sug-ico">⎋</div><div class="sug-lbl">Bluetooth</div></div>
+              <div class="sug-tog"><div class="sug-ico">🌙</div><div class="sug-lbl">Do not disturb</div></div>
+              <div class="sug-tog"><div class="sug-ico">📍</div><div class="sug-lbl">Location</div></div>
+              <div class="sug-tog"><div class="sug-ico">▶</div><div class="sug-lbl">Media output</div></div>
+            </div>
+          </div>
+
+          <div class="exp-toggle-box">
+            <div class="exp-row">
+              <div class="exp-tog active-toggle"><div class="toggle-icon">📶</div><div class="toggle-name">Wi-Fi<br/><span style="font-size:.55rem;color:#7c5cfc">Home</span></div></div>
+              <div class="exp-tog active-toggle"><div class="toggle-icon">🔊</div><div class="toggle-name">Sound<br/><span style="font-size:.55rem;color:var(--t3)">Vibrate</span></div></div>
+              <div class="exp-tog"><div class="toggle-icon">🔄</div><div class="toggle-name">Auto rotate</div></div>
+              <div class="exp-tog"><div class="toggle-icon">✈</div><div class="toggle-name">Airplane mode</div></div>
+            </div>
+            <div class="exp-row">
+              <div class="exp-tog"><div class="toggle-icon">🔦</div><div class="toggle-name">Flashlight</div></div>
+              <div class="exp-tog"><div class="toggle-icon">↕</div><div class="toggle-name">Mobile data</div></div>
+              <div class="exp-tog"><div class="toggle-icon">🔋</div><div class="toggle-name">Power saving</div></div>
+              <div class="exp-tog"><div class="toggle-icon">🌙</div><div class="toggle-name">Dark mode</div></div>
+            </div>
+          </div>
+
+          <div class="brightness-row">
+            <span>☀</span>
+            <div class="brightness-track"><div class="brightness-fill"></div></div>
+            <span style="font-size:.65rem;color:var(--t3)">A</span>
+          </div>
+
+          <div class="exp-bottom-row">
+            <div class="exp-edit-btn tap" data-to="edit_qs">✏ Edit</div>
+            <div class="exp-settings-btn">⚙</div>
+          </div>
+
+          <div class="nav-bar"><span>|||</span><span>⬜</span><span class="tap" data-to="home">‹</span></div>
+        </div>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- SCREEN 8: EDIT QUICK SETTINGS  -->
+        <!-- ═══════════════════════════════ -->
+        <div class="screen" id="s-edit_qs">
+          <div class="status-bar"><span>14:42</span><span class="status-icons">))) 70%</span></div>
+
+          <div class="page-header">
+            <span class="page-title" style="font-size:1rem">Edit</span>
+          </div>
+          <div class="page-subtitle">Drag to reorder</div>
+
+          <div class="edit-qs-grid">
+            <div class="eqs-btn active-eqs"><div class="remove-red">–</div><div class="toggle-icon">📶</div><div class="toggle-name">Wi-Fi</div></div>
+            <div class="eqs-btn active-eqs"><div class="remove-red">–</div><div class="toggle-icon">⎋</div><div class="toggle-name">Bluetooth</div></div>
+            <div class="eqs-btn active-eqs"><div class="remove-red">–</div><div class="toggle-icon">🔊</div><div class="toggle-name">Sound</div></div>
+            <div class="eqs-btn active-eqs"><div class="remove-red">–</div><div class="toggle-icon">🔄</div><div class="toggle-name">Auto rotate</div></div>
+            <div class="eqs-btn active-eqs"><div class="remove-red">–</div><div class="toggle-icon">✈</div><div class="toggle-name">Airplane</div></div>
+            <div class="eqs-btn active-eqs"><div class="remove-red">–</div><div class="toggle-icon">🔦</div><div class="toggle-name">Flashlight</div></div>
+            <div class="eqs-btn active-eqs"><div class="remove-red">–</div><div class="toggle-icon">↕</div><div class="toggle-name">Mobile data</div></div>
+            <div class="eqs-btn active-eqs"><div class="remove-red">–</div><div class="toggle-icon">🔋</div><div class="toggle-name">Power saving</div></div>
+          </div>
+
+          <div class="divider-label">Available buttons</div>
+
+          <div class="edit-qs-grid">
+            <div class="eqs-btn avail"><div class="add-green">+</div><div class="toggle-icon">🎤</div><div class="toggle-name">Microphone</div></div>
+            <div class="eqs-btn avail"><div class="add-green">+</div><div class="toggle-icon">N</div><div class="toggle-name">NFC</div></div>
+            <div class="eqs-btn avail"><div class="add-green">+</div><div class="toggle-icon">🔁</div><div class="toggle-name">Sync</div></div>
+            <div class="eqs-btn avail"><div class="add-green">+</div><div class="toggle-icon">📸</div><div class="toggle-name">Screenshot</div></div>
+          </div>
+
+          <div class="edit-qs-footer">
+            <div class="footer-reset tap" data-to="qs_expanded">Reset</div>
+            <div class="footer-divider"></div>
+            <div class="footer-done tap" data-to="qs_expanded">Done</div>
+          </div>
+
+          <div class="nav-bar"><span>|||</span><span>⬜</span><span>‹</span></div>
+        </div>
+
+        <!-- ═══════════════════════════════ -->
+        <!-- SCREEN 9: EMERGENCY            -->
+        <!-- ═══════════════════════════════ -->
+        <div class="screen" id="s-emergency">
+          <div class="status-bar"><span>14:42 73°</span><span class="status-icons">▲ ))) 74</span></div>
+
+          <div class="emg-back tap" data-to="home">‹</div>
+
+          <div class="emg-icon-wrap">
+            <div class="emg-big-icon">📞⚠</div>
+          </div>
+          <div class="emg-title">Emergency</div>
+          <div class="emg-sub">Get help fast in an emergency.</div>
+
+          <div class="emg-slide-btn">
+            <div class="emg-circle">→</div>
+            <span>Slide to call emergency</span>
+          </div>
+
+          <div class="emg-location-row">
+            <span>📍</span>
+            <div style="flex:1">
+              <div style="font-size:.8rem;font-weight:600">Share my location</div>
+              <div style="font-size:.7rem;color:var(--t2)">Share your real-time location with emergency contacts.</div>
+            </div>
+            <div class="toggle-switch"></div>
+          </div>
+
+          <div class="emg-contacts-header">
+            <span style="font-weight:600;font-size:.85rem">Emergency contacts</span>
+            <span class="red-text">Edit</span>
+          </div>
+          <div class="emg-contacts">
+            <div class="emg-contact"><div class="contact-avatar" style="background:#e53e3e">M</div><div><div class="contact-name">Mom</div><div class="contact-num">+1 555-123-4567</div></div><div class="contact-call">📞</div></div>
+            <div class="emg-contact"><div class="contact-avatar" style="background:#3182ce">D</div><div><div class="contact-name">Dad</div><div class="contact-num">+1 555-987-6543</div></div><div class="contact-call">📞</div></div>
+            <div class="emg-contact"><div class="contact-avatar" style="background:#7c5cfc">A</div><div><div class="contact-name">Alex</div><div class="contact-num">+1 555-456-7890</div></div><div class="contact-call">📞</div></div>
+          </div>
+
+          <div class="emg-tools-label">Emergency tools</div>
+          <div class="emg-tools-grid">
+            <div class="emg-tool"><span>🏥</span><div>Medical info</div></div>
+            <div class="emg-tool"><span>🚨</span><div>Siren</div></div>
+            <div class="emg-tool"><span>🔦</span><div>Flashlight</div></div>
+            <div class="emg-tool"><span>❤️</span><div>Health check</div></div>
+            <div class="emg-tool"><span>🎤</span><div>Voice recording</div></div>
+            <div class="emg-tool"><span>🛡</span><div>Emergency mode</div></div>
+          </div>
+
+          <div class="nav-bar"><span>|||</span><span>⬜</span><span>‹</span></div>
+        </div>
+
+      </div><!-- end screen-container -->
+    </div><!-- end phone-shell -->
+
+    <div class="screen-label-wrap">
+      <div class="screen-label" id="screen-label">Home Screen</div>
+      <div class="screen-sub" id="screen-sub">Tap the search bar · App Library · Emergency</div>
+    </div>
+  </div><!-- end phone-wrap -->
+
+  <!-- RIGHT: Info Panel -->
+  <div class="info-panel">
+    <div class="info-box">
+      <div class="info-eyebrow">Current Screen</div>
+      <div class="info-title" id="info-title">Home Screen</div>
+      <div class="info-desc" id="info-desc">Centralized hub — universal search, frequent apps, core actions grid, and emergency access.</div>
+    </div>
+    <div class="info-box" id="nav-hint-box">
+      <div class="info-eyebrow">Tap to go to</div>
+      <div id="nav-hints"></div>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi"><div class="kpi-n red">↓40%</div><div class="kpi-l">Emergency Calls</div></div>
+      <div class="kpi"><div class="kpi-n grn">↓60%</div><div class="kpi-l">Find Time</div></div>
+      <div class="kpi"><div class="kpi-n pur">↑35%</div><div class="kpi-l">Task Completion</div></div>
+      <div class="kpi"><div class="kpi-n pur">↑28%</div><div class="kpi-l">SUS Score</div></div>
+    </div>
+    <div class="info-box tip-box">
+      <div class="info-eyebrow" style="color:var(--green)">Tip</div>
+      <div class="info-desc">Use <strong>← → arrow keys</strong> to navigate.<br/>Press <strong>Esc</strong> to return home.</div>
+    </div>
+  </div>
+
+</div><!-- end layout -->
+
+<script src="script.js"></script>
+</body>
+</html>
