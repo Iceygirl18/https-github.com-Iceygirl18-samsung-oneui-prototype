@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Samsung One UI Redesign — Interactive Prototype</title>
+<title>Samsung One UI Redesign — Prototype</title>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
 <div class="layout">
 
-  <!-- LEFT FLOW MAP -->
+  <!-- LEFT FLOW -->
   <nav class="flow-panel">
     <p class="flow-title">Prototype Flow</p>
     <div class="flow-item active" id="flow-0" onclick="goTo('home')"><span class="fn">1</span>Home Screen</div>
@@ -21,84 +21,126 @@
     <div class="flow-item" id="flow-5" onclick="goTo('qs_expanded')"><span class="fn">6</span>QS Expanded</div>
     <div class="flow-item" id="flow-6" onclick="goTo('edit_qs')"><span class="fn">7</span>Edit QS</div>
     <div class="flow-item" id="flow-7" onclick="goTo('emergency')"><span class="fn">8</span>Emergency</div>
-    <div class="kb-tip">← → keys to navigate<br/>Esc = home</div>
+    <div class="kb-tip">← → keys · Esc = home</div>
   </nav>
 
   <!-- PHONE -->
   <div class="phone-wrap">
     <div class="phone-shell">
       <div class="notch"></div>
-      <div class="phone-screen" id="phone-screen">
+      <div class="phone-screen">
 
-        <!-- ══════════════════════════════
-             SCREEN 1 — HOME
-        ══════════════════════════════ -->
+        <!-- ══════════════════
+             HOME
+        ══════════════════ -->
         <div class="screen active" id="s-home">
-          <div class="status-bar">
-            <span>14:42 · 73°</span>
-            <span class="sb-right">☀ ▲ ))) 74%</span>
-          </div>
-          <div class="scroll-body">
+          <div class="status-bar"><span>14:42 · 73°</span><span>☀ ▲ ))) 74%</span></div>
+          <!-- HOME IS FULLY SCROLLABLE -->
+          <div class="full-scroll">
             <div class="home-clock">14:42</div>
             <div class="home-date">Thursday, Apr 26</div>
             <div class="home-weather">☀️ &nbsp;73° · Clear Sky</div>
 
-            <div class="searchbar tappable" onclick="goTo('search')">
+            <div class="searchbar clickable" onclick="goTo('search')">
               <span class="sbi">🔍</span>
               <span class="sbp">Search apps, contacts, settings...</span>
               <span class="sbm">🎤</span>
             </div>
 
-            <div class="sec-label">FREQUENT APPS</div>
-            <div class="freq-apps">
-              <div class="fapp"><div class="aico" style="background:#f59e0b">M</div><span>Miro</span></div>
-              <div class="fapp"><div class="aico" style="background:#25d366">💬</div><span>WhatsApp</span></div>
-              <div class="fapp"><div class="aico" style="background:#ea4335">G</div><span>Gmail</span></div>
-              <div class="fapp"><div class="aico" style="background:#0077b5">in</div><span>LinkedIn</span></div>
-              <div class="fapp"><div class="aico" style="background:#4285f4">📍</div><span>Maps</span></div>
+            <div class="sec-lbl">FREQUENT APPS</div>
+            <div class="freq-row">
+              <div class="fapp clickable"><div class="aico" style="background:#f59e0b">M</div><span>Miro</span></div>
+              <div class="fapp clickable"><div class="aico" style="background:#25d366">💬</div><span>WhatsApp</span></div>
+              <div class="fapp clickable"><div class="aico" style="background:#ea4335">G</div><span>Gmail</span></div>
+              <div class="fapp clickable"><div class="aico" style="background:#0077b5">in</div><span>LinkedIn</span></div>
+              <div class="fapp clickable"><div class="aico" style="background:#4285f4">📍</div><span>Maps</span></div>
             </div>
 
-            <div class="sec-label">CORE ACTIONS</div>
+            <div class="sec-lbl">CORE ACTIONS</div>
             <div class="core-grid">
-              <div class="cbtn ripple" style="--bc:#7c5cfc"><span class="ci">👤</span><span class="cn">Contacts</span></div>
-              <div class="cbtn ripple" style="--bc:#7c5cfc"><span class="ci">💬</span><span class="cn">Messages</span></div>
-              <div class="cbtn ripple" style="--bc:#f59e0b;position:relative">
-                <div class="notif-dot"></div>
-                <span class="ci">✉️</span><span class="cn">Email</span>
+              <div class="cbtn clickable" style="--bc:#7c5cfc"><span class="ci">👤</span><span class="cn">Contacts</span></div>
+              <div class="cbtn clickable" style="--bc:#7c5cfc"><span class="ci">💬</span><span class="cn">Messages</span></div>
+              <div class="cbtn clickable" style="--bc:#f59e0b;position:relative">
+                <div class="ndot"></div><span class="ci">✉️</span><span class="cn">Email</span>
               </div>
-              <div class="cbtn ripple" style="--bc:#34d399"><span class="ci">📞</span><span class="cn">Phone</span></div>
-              <div class="cbtn ripple tappable" style="--bc:#ff3b55" onclick="goTo('app_library')">
+              <div class="cbtn clickable" style="--bc:#34d399"><span class="ci">📞</span><span class="cn">Phone</span></div>
+              <div class="cbtn clickable" style="--bc:#ff3b55" onclick="goTo('app_library')">
                 <span class="ci">⊞</span><span class="cn">App Library</span>
               </div>
-              <div class="cbtn ripple" style="--bc:#3b82f6"><span class="ci">🌐</span><span class="cn">Internet</span></div>
+              <div class="cbtn clickable" style="--bc:#3b82f6"><span class="ci">🌐</span><span class="cn">Internet</span></div>
             </div>
 
-            <div class="emg-pill tappable" onclick="goTo('emergency')">
+            <div class="emg-pill clickable" onclick="goTo('emergency')">
               <span>📞</span><span>Emergency</span>
             </div>
+
+            <!-- extra scroll content so user can see scrolling works -->
+            <div class="sec-lbl" style="margin-top:.5rem">RECENT NOTIFICATIONS</div>
+            <div class="notif-list">
+              <div class="notif-item clickable">
+                <div class="aico" style="background:#ea4335;width:32px;height:32px;font-size:.75rem">G</div>
+                <div class="notif-text">
+                  <div class="notif-app">Gmail</div>
+                  <div class="notif-msg">New message from Sarah J. — "Hey, about the Pratt project..."</div>
+                </div>
+                <div class="notif-time">2m</div>
+              </div>
+              <div class="notif-item clickable">
+                <div class="aico" style="background:#25d366;width:32px;height:32px;font-size:.75rem">💬</div>
+                <div class="notif-text">
+                  <div class="notif-app">WhatsApp</div>
+                  <div class="notif-msg">Mom: "Don't forget dinner on Sunday!"</div>
+                </div>
+                <div class="notif-time">15m</div>
+              </div>
+              <div class="notif-item clickable">
+                <div class="aico" style="background:#0077b5;width:32px;height:32px;font-size:.75rem">in</div>
+                <div class="notif-text">
+                  <div class="notif-app">LinkedIn</div>
+                  <div class="notif-msg">3 people viewed your profile this week</div>
+                </div>
+                <div class="notif-time">1h</div>
+              </div>
+              <div class="notif-item clickable">
+                <div class="aico" style="background:#1db954;width:32px;height:32px;font-size:.75rem">🎵</div>
+                <div class="notif-text">
+                  <div class="notif-app">Spotify</div>
+                  <div class="notif-msg">Daily Mix 1 is ready for you</div>
+                </div>
+                <div class="notif-time">2h</div>
+              </div>
+            </div>
+
+            <div class="sec-lbl">SUGGESTED APPS</div>
+            <div class="freq-row">
+              <div class="fapp clickable"><div class="aico" style="background:#ff0000">▶</div><span>YouTube</span></div>
+              <div class="fapp clickable"><div class="aico" style="background:#e1306c">📸</div><span>Instagram</span></div>
+              <div class="fapp clickable"><div class="aico" style="background:#010101">🎵</div><span>TikTok</span></div>
+              <div class="fapp clickable"><div class="aico" style="background:#2d8cff">Z</div><span>Zoom</span></div>
+              <div class="fapp clickable"><div class="aico" style="background:#6264a7">T</div><span>Teams</span></div>
+            </div>
+            <div style="height:1rem"></div>
           </div>
           <div class="navbar">
-            <span class="nb tappable" onclick="goTo('qs_expanded')">|||</span>
+            <span class="nb clickable" onclick="goTo('qs_expanded')">|||</span>
             <span class="nb">⬜</span>
             <span class="nb">‹</span>
           </div>
         </div>
 
-        <!-- ══════════════════════════════
-             SCREEN 2 — SEARCH (live typing)
-        ══════════════════════════════ -->
+        <!-- ══════════════════
+             SEARCH
+        ══════════════════ -->
         <div class="screen" id="s-search">
-          <div class="status-bar">
-            <span>14:42</span><span class="sb-right">▲ ))) 74%</span>
-          </div>
-          <div class="search-top">
+          <div class="status-bar"><span>14:42</span><span>▲ ))) 74%</span></div>
+          <div class="search-header">
             <div class="searchbar active-sb">
               <span class="sbi">🔍</span>
-              <input id="live-search" type="text"
+              <input id="live-input" type="text"
                      placeholder="Search apps, contacts, settings..."
                      oninput="liveSearch(this.value)"
                      autocomplete="off" spellcheck="false"/>
-              <span id="clr" class="tappable" onclick="clearSearch()" style="display:none;color:var(--t2);cursor:pointer">✕</span>
+              <span id="clr-btn" class="clickable" onclick="clearSearch()" style="display:none;color:var(--t2)">✕</span>
               <span class="sbm">🎤</span>
             </div>
             <div class="filter-row">
@@ -109,323 +151,284 @@
               <div class="ftab" data-f="files" onclick="setFilter(this)">Files</div>
             </div>
           </div>
-          <div class="search-body" id="search-body">
-            <!-- populated by JS -->
-          </div>
+          <!-- SEARCH RESULTS — SCROLLABLE -->
+          <div class="full-scroll" id="search-results"></div>
           <div class="navbar">
             <span class="nb">|||</span>
             <span class="nb">⬜</span>
-            <span class="nb tappable" onclick="goBack()">‹</span>
+            <span class="nb clickable" onclick="goBack()">‹</span>
           </div>
         </div>
 
-        <!-- ══════════════════════════════
-             SCREEN 3 — APP LIBRARY
-        ══════════════════════════════ -->
+        <!-- ══════════════════
+             APP LIBRARY
+        ══════════════════ -->
         <div class="screen" id="s-app_library">
-          <div class="status-bar">
-            <span>14:42 · 73°</span><span class="sb-right">▲ ))) 74%</span>
-          </div>
+          <div class="status-bar"><span>14:42 · 73°</span><span>▲ ))) 74%</span></div>
           <div class="al-header">
             <span class="al-title">App Library</span>
             <div style="display:flex;gap:.7rem;align-items:center">
-              <span style="cursor:pointer">🔍</span>
-              <span class="ptxt tappable" onclick="goTo('edit_pinned')">Edit</span>
+              <span>🔍</span>
+              <span class="ptxt clickable" onclick="goTo('edit_pinned')">Edit</span>
             </div>
           </div>
-          <div class="searchbar small-sb tappable" onclick="goTo('search')">
-            <span class="sbi">🔍</span>
-            <span style="color:var(--t3);font-size:.75rem">Search apps</span>
+          <div class="searchbar small-sb clickable" onclick="goTo('search')">
+            <span class="sbi">🔍</span><span style="color:var(--t3);font-size:.75rem">Search apps</span>
           </div>
-          <div class="pin-header">
-            <span class="sec-label" style="padding:0">Pinned</span>
-            <span class="ptxt tappable" onclick="goTo('edit_pinned')" style="font-size:.7rem">Edit</span>
+          <div class="pin-hdr">
+            <span class="sec-lbl" style="padding:0">Pinned</span>
+            <span class="ptxt clickable" onclick="goTo('edit_pinned')" style="font-size:.7rem">Edit</span>
           </div>
-          <div class="pin-row" id="pin-display"><!-- JS --></div>
+          <div id="pin-display" class="pin-row"></div>
+          <!-- list + rail side by side -->
           <div class="al-body">
-            <div class="al-list" id="al-list"><!-- JS --></div>
-            <div class="az-rail" id="az-rail"><!-- JS --></div>
+            <div class="al-list" id="al-list"></div>
+            <div class="az-rail" id="az-rail"></div>
           </div>
           <div class="navbar">
             <span class="nb">|||</span>
             <span class="nb">⬜</span>
-            <span class="nb tappable" onclick="goBack()">‹</span>
+            <span class="nb clickable" onclick="goBack()">‹</span>
           </div>
         </div>
 
-        <!-- ══════════════════════════════
-             SCREEN 4 — EDIT PINNED
-        ══════════════════════════════ -->
+        <!-- ══════════════════
+             EDIT PINNED
+        ══════════════════ -->
         <div class="screen" id="s-edit_pinned">
-          <div class="status-bar">
-            <span>14:42 · 73°</span><span class="sb-right">▲ ))) 100%</span>
-          </div>
+          <div class="status-bar"><span>14:42 · 73°</span><span>▲ ))) 100%</span></div>
           <div class="pg-hdr">
-            <span class="back-ico tappable" onclick="goBack()">←</span>
+            <span class="back-ico clickable" onclick="goBack()">←</span>
             <span class="pg-title">Edit pinned apps</span>
-            <span class="ptxt tappable" onclick="savePinned()">Done</span>
+            <span class="ptxt clickable" onclick="savePinned()">Done</span>
           </div>
-          <div class="pg-sub">Tap – to remove · Tap + to add</div>
+          <div class="pg-sub">Tap <span style="color:var(--red);font-weight:700">–</span> to remove &nbsp;·&nbsp; Tap <span style="color:var(--green);font-weight:700">+</span> to add</div>
           <div class="ep-wrap">
-            <div class="ep-row" id="ep-row"><!-- JS --></div>
+            <div id="ep-row" class="ep-row"></div>
           </div>
-          <div class="sec-label" style="padding:.5rem .8rem .2rem">All Apps</div>
-          <div class="ep-all" id="ep-all"><!-- JS --></div>
+          <div class="sec-lbl" style="padding:.5rem .8rem .2rem">All Apps — tap + to pin</div>
+          <div id="ep-all" class="ep-all"></div>
           <div class="navbar">
             <span class="nb">|||</span>
             <span class="nb">⬜</span>
-            <span class="nb tappable" onclick="goBack()">‹</span>
+            <span class="nb clickable" onclick="goBack()">‹</span>
           </div>
         </div>
 
-        <!-- ══════════════════════════════
-             SCREEN 5 — QUICK SETTINGS
-        ══════════════════════════════ -->
+        <!-- ══════════════════
+             QUICK SETTINGS
+        ══════════════════ -->
         <div class="screen" id="s-quick_settings">
-          <div class="status-bar">
-            <span>14:42 · 73°</span><span class="sb-right">))) 74%</span>
-          </div>
-          <div class="scroll-body">
-            <!-- Emergency slide -->
+          <div class="status-bar"><span>14:42 · 73°</span><span>))) 74%</span></div>
+          <div class="full-scroll">
             <div class="emg-bar" id="emg-bar">
               <div class="emg-thumb" id="emg-thumb">📞</div>
-              <span class="emg-bar-lbl" id="emg-bar-lbl">Slide for emergency</span>
-              <span style="margin-left:auto;color:var(--red)">›</span>
+              <span class="emg-lbl">Slide for emergency →</span>
             </div>
             <div class="qs-hdr">
               <span class="qs-title">Quick Settings</span>
-              <div class="qs-edit-btn tappable" onclick="goTo('qs_expanded')">⊞ Edit</div>
+              <div class="qs-edit clickable" onclick="goTo('qs_expanded')">⊞ Edit</div>
             </div>
-            <!-- Connectivity -->
             <div class="qs-cat g-cat">
               <div class="cat-lbl g-lbl">▲ Connectivity</div>
               <div class="tog-row">
-                <div class="qtog on g-on ripple" onclick="tapToggle(this)"><span class="ti">📶</span><span class="tn">Wi-Fi</span></div>
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">⎋</span><span class="tn">Bluetooth</span></div>
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">✈</span><span class="tn">Airplane</span></div>
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">N</span><span class="tn">NFC</span></div>
+                <div class="qtog on g-on clickable" onclick="tapToggle(this)"><span class="ti">📶</span><span class="tn">Wi-Fi</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">⎋</span><span class="tn">Bluetooth</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">✈</span><span class="tn">Airplane</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">N</span><span class="tn">NFC</span></div>
               </div>
             </div>
-            <!-- Device Control -->
             <div class="qs-cat y-cat">
               <div class="cat-lbl y-lbl">⚙ Device Control</div>
               <div class="tog-row">
-                <div class="qtog on y-on ripple" onclick="tapToggle(this)"><span class="ti">☀</span><span class="tn">Brightness</span></div>
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">🔊</span><span class="tn">Volume</span></div>
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">📍</span><span class="tn">Location</span></div>
+                <div class="qtog on y-on clickable" onclick="tapToggle(this)"><span class="ti">☀</span><span class="tn">Brightness</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">🔊</span><span class="tn">Volume</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">📍</span><span class="tn">Location</span></div>
               </div>
             </div>
-            <!-- Tools -->
             <div class="qs-cat p-cat">
               <div class="cat-lbl p-lbl">✂ Tools</div>
               <div class="tog-row">
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">📷</span><span class="tn">Camera</span></div>
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">🔦</span><span class="tn">Flashlight</span></div>
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">📅</span><span class="tn">Calendar</span></div>
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">🔎</span><span class="tn">Magnify</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">📷</span><span class="tn">Camera</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">🔦</span><span class="tn">Flashlight</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">📅</span><span class="tn">Calendar</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">🔎</span><span class="tn">Magnify</span></div>
               </div>
             </div>
-            <!-- System -->
             <div class="qs-cat r-cat">
               <div class="cat-lbl r-lbl">⚙ System</div>
               <div class="tog-row">
-                <div class="qtog ripple" onclick="tapToggle(this)"><span class="ti">ℹ</span><span class="tn">Device Info</span></div>
+                <div class="qtog clickable" onclick="tapToggle(this)"><span class="ti">ℹ</span><span class="tn">Device Info</span></div>
               </div>
             </div>
-            <div class="qs-search tappable" onclick="goTo('search')">
-              <span>🔍</span>
-              <span style="color:var(--t3)">Search settings and more</span>
-              <span style="margin-left:auto">🎤</span>
+            <div class="qs-search clickable" onclick="goTo('search')">
+              <span>🔍</span><span style="color:var(--t3)">Search settings and more</span><span style="margin-left:auto">🎤</span>
             </div>
           </div>
           <div class="navbar">
             <span class="nb">|||</span>
             <span class="nb">⬜</span>
-            <span class="nb tappable" onclick="goBack()">‹</span>
+            <span class="nb clickable" onclick="goBack()">‹</span>
           </div>
         </div>
 
-        <!-- ══════════════════════════════
-             SCREEN 6 — QS EXPANDED
-        ══════════════════════════════ -->
+        <!-- ══════════════════
+             QS EXPANDED
+        ══════════════════ -->
         <div class="screen" id="s-qs_expanded">
-          <div class="status-bar">
-            <span>14:42</span><span class="sb-right">))) 100%</span>
-          </div>
-          <div class="scroll-body">
+          <div class="status-bar"><span>14:42</span><span>))) 100%</span></div>
+          <div class="full-scroll">
             <div class="exp-toprow">
               <span class="date-sm">Thu, Apr 26</span>
               <div class="exp-icons"><span>✏</span><span>⏻</span><span>⚙</span></div>
             </div>
-
             <div class="sug-box">
               <div class="sug-hdr">
-                <span class="ptxt" style="font-size:.65rem">✦ Suggested for you</span>
+                <span class="ptxt" style="font-size:.65rem">✦ Suggested</span>
                 <span style="color:var(--t3);font-size:.6rem">Learn more ›</span>
               </div>
               <div class="sug-row">
-                <div class="sug-tog ripple" onclick="tapToggle(this)"><span>⎋</span><span>Bluetooth</span></div>
-                <div class="sug-tog ripple" onclick="tapToggle(this)"><span>🌙</span><span>Do not disturb</span></div>
-                <div class="sug-tog ripple" onclick="tapToggle(this)"><span>📍</span><span>Location</span></div>
-                <div class="sug-tog ripple" onclick="tapToggle(this)"><span>▶</span><span>Media</span></div>
+                <div class="sug-tog clickable" onclick="tapToggle(this)"><span>⎋</span><span>Bluetooth</span></div>
+                <div class="sug-tog clickable" onclick="tapToggle(this)"><span>🌙</span><span>Do not disturb</span></div>
+                <div class="sug-tog clickable" onclick="tapToggle(this)"><span>📍</span><span>Location</span></div>
+                <div class="sug-tog clickable" onclick="tapToggle(this)"><span>▶</span><span>Media</span></div>
               </div>
             </div>
-
             <div class="exp-box">
               <div class="exp-row">
-                <div class="exp-tog on ripple" onclick="tapToggle(this)"><span class="ti">📶</span><div class="tn">Wi-Fi<br/><span class="sub">Home</span></div></div>
-                <div class="exp-tog on ripple" onclick="tapToggle(this)"><span class="ti">🔊</span><div class="tn">Sound<br/><span class="sub">Vibrate</span></div></div>
-                <div class="exp-tog ripple" onclick="tapToggle(this)"><span class="ti">🔄</span><div class="tn">Auto rotate</div></div>
-                <div class="exp-tog ripple" onclick="tapToggle(this)"><span class="ti">✈</span><div class="tn">Airplane</div></div>
+                <div class="exp-tog on clickable" onclick="tapToggle(this)"><span class="ti">📶</span><div class="tn">Wi-Fi<br/><span class="sub">Home</span></div></div>
+                <div class="exp-tog on clickable" onclick="tapToggle(this)"><span class="ti">🔊</span><div class="tn">Sound<br/><span class="sub">Vibrate</span></div></div>
+                <div class="exp-tog clickable" onclick="tapToggle(this)"><span class="ti">🔄</span><div class="tn">Auto rotate</div></div>
+                <div class="exp-tog clickable" onclick="tapToggle(this)"><span class="ti">✈</span><div class="tn">Airplane</div></div>
               </div>
               <div class="exp-row">
-                <div class="exp-tog ripple" onclick="tapToggle(this)"><span class="ti">🔦</span><div class="tn">Flashlight</div></div>
-                <div class="exp-tog ripple" onclick="tapToggle(this)"><span class="ti">↕</span><div class="tn">Mobile data</div></div>
-                <div class="exp-tog ripple" onclick="tapToggle(this)"><span class="ti">🔋</span><div class="tn">Power saving</div></div>
-                <div class="exp-tog ripple" onclick="tapToggle(this)"><span class="ti">🌙</span><div class="tn">Dark mode</div></div>
+                <div class="exp-tog clickable" onclick="tapToggle(this)"><span class="ti">🔦</span><div class="tn">Flashlight</div></div>
+                <div class="exp-tog clickable" onclick="tapToggle(this)"><span class="ti">↕</span><div class="tn">Mobile data</div></div>
+                <div class="exp-tog clickable" onclick="tapToggle(this)"><span class="ti">🔋</span><div class="tn">Power saving</div></div>
+                <div class="exp-tog clickable" onclick="tapToggle(this)"><span class="ti">🌙</span><div class="tn">Dark mode</div></div>
               </div>
             </div>
-
-            <!-- Draggable brightness -->
             <div class="slider-row">
               <span>🌑</span>
-              <div class="slider-track" id="b-track">
-                <div class="slider-fill" id="b-fill" style="width:65%"></div>
-                <div class="slider-thumb" id="b-thumb" style="left:calc(65% - 8px)"></div>
-              </div>
+              <div class="sl-track" id="b-track"><div class="sl-fill" id="b-fill"></div><div class="sl-thumb" id="b-thumb"></div></div>
               <span>☀</span>
             </div>
-            <!-- Draggable volume -->
             <div class="slider-row">
               <span>🔈</span>
-              <div class="slider-track" id="v-track">
-                <div class="slider-fill" id="v-fill" style="width:45%;background:var(--green)"></div>
-                <div class="slider-thumb" id="v-thumb" style="left:calc(45% - 8px);background:var(--green)"></div>
-              </div>
+              <div class="sl-track" id="v-track"><div class="sl-fill" id="v-fill" style="background:var(--green)"></div><div class="sl-thumb" id="v-thumb" style="background:var(--green)"></div></div>
               <span>🔊</span>
             </div>
-
             <div class="exp-bot">
-              <div class="exp-edit tappable" onclick="goTo('edit_qs')">✏ Edit</div>
-              <div class="exp-cog">⚙</div>
+              <div class="exp-edit clickable" onclick="goTo('edit_qs')">✏ Edit</div>
+              <div class="exp-cog clickable">⚙</div>
             </div>
           </div>
           <div class="navbar">
             <span class="nb">|||</span>
             <span class="nb">⬜</span>
-            <span class="nb tappable" onclick="goBack()">‹</span>
+            <span class="nb clickable" onclick="goBack()">‹</span>
           </div>
         </div>
 
-        <!-- ══════════════════════════════
-             SCREEN 7 — EDIT QS
-        ══════════════════════════════ -->
+        <!-- ══════════════════
+             EDIT QS
+        ══════════════════ -->
         <div class="screen" id="s-edit_qs">
-          <div class="status-bar">
-            <span>14:42</span><span class="sb-right">))) 70%</span>
-          </div>
+          <div class="status-bar"><span>14:42</span><span>))) 70%</span></div>
           <div class="pg-hdr">
-            <span class="pg-title" style="font-size:1rem">Edit</span>
+            <span class="pg-title" style="font-size:1rem">Edit Quick Settings</span>
             <span></span>
           </div>
-          <div class="pg-sub">Tap – to remove · Tap + to add</div>
-          <div class="eqs-grid" id="active-grid"></div>
-          <div class="divider-lbl">Available buttons</div>
-          <div class="eqs-grid" id="avail-grid"></div>
+          <div class="pg-sub">Tap <span style="color:var(--red);font-weight:700">–</span> to remove from active &nbsp;·&nbsp; Tap <span style="color:var(--green);font-weight:700">+</span> to add</div>
+          <div class="full-scroll">
+            <div class="eqs-section-lbl">Active tiles — tap – to remove</div>
+            <div class="eqs-grid" id="active-grid"></div>
+            <div class="eqs-section-lbl" style="margin-top:.5rem">Available tiles — tap + to add</div>
+            <div class="eqs-grid" id="avail-grid"></div>
+            <div style="height:.5rem"></div>
+          </div>
           <div class="eqs-footer">
-            <span class="ptxt tappable" onclick="resetQS()">Reset</span>
+            <span class="ptxt clickable" id="reset-btn" onclick="resetQS()">Reset to defaults</span>
             <div class="foot-div"></div>
-            <span class="ptxt tappable" onclick="goTo('qs_expanded')">Done</span>
+            <span class="ptxt clickable" onclick="goTo('qs_expanded')">Done</span>
           </div>
           <div class="navbar">
             <span class="nb">|||</span>
             <span class="nb">⬜</span>
-            <span class="nb tappable" onclick="goBack()">‹</span>
+            <span class="nb clickable" onclick="goBack()">‹</span>
           </div>
         </div>
 
-        <!-- ══════════════════════════════
-             SCREEN 8 — EMERGENCY
-        ══════════════════════════════ -->
+        <!-- ══════════════════
+             EMERGENCY
+        ══════════════════ -->
         <div class="screen" id="s-emergency" style="background:#0c0303">
-          <div class="status-bar" style="background:#0c0303">
-            <span>14:42 · 73°</span><span class="sb-right">▲ ))) 74%</span>
-          </div>
-          <div class="scroll-body">
-            <span class="emg-back tappable" onclick="goBack()">‹</span>
-
-            <div class="emg-icon-wrap">
-              <div class="emg-icon-ring">📞⚠</div>
-            </div>
+          <div class="status-bar" style="background:#0c0303"><span>14:42 · 73°</span><span>▲ ))) 74%</span></div>
+          <div class="full-scroll">
+            <span class="emg-back clickable" onclick="goBack()">‹ Back</span>
+            <div class="emg-icon-wrap"><div class="emg-icon-ring">📞⚠</div></div>
             <div class="emg-title">Emergency</div>
             <div class="emg-sub">Get help fast in an emergency.</div>
 
-            <!-- Slide to call -->
             <div class="slide-track" id="slide-track">
               <div class="slide-thumb" id="slide-thumb">→</div>
               <span class="slide-lbl" id="slide-lbl">Slide to call emergency</span>
             </div>
             <div class="calling-msg" id="calling-msg">📞 Calling emergency services...</div>
 
-            <!-- Location toggle -->
             <div class="loc-row">
               <span style="font-size:1.1rem">📍</span>
               <div style="flex:1">
-                <div style="font-size:.8rem;font-weight:600;color:var(--t)">Share my location</div>
+                <div style="font-size:.8rem;font-weight:600">Share my location</div>
                 <div style="font-size:.65rem;color:var(--t2)">Share real-time location with contacts</div>
               </div>
-              <div class="sw-track" id="loc-sw" onclick="flipSwitch(this)">
-                <div class="sw-dot"></div>
-              </div>
+              <div class="sw-track" id="loc-sw" onclick="flipSwitch(this)"><div class="sw-dot"></div></div>
             </div>
 
-            <!-- Contacts -->
             <div class="emg-contacts-hdr">
-              <span style="font-weight:600;font-size:.82rem;color:var(--t)">Emergency contacts</span>
+              <span style="font-weight:600;font-size:.82rem">Emergency contacts</span>
               <span style="color:var(--red);font-size:.75rem;cursor:pointer">Edit</span>
             </div>
             <div class="emg-contacts-list">
-              <div class="ec ripple"><div class="ec-av" style="background:#e53e3e">M</div><div><div class="ec-name">Mom</div><div class="ec-num">+1 555-123-4567</div></div><span class="ec-call">📞</span></div>
-              <div class="ec ripple"><div class="ec-av" style="background:#3182ce">D</div><div><div class="ec-name">Dad</div><div class="ec-num">+1 555-987-6543</div></div><span class="ec-call">📞</span></div>
-              <div class="ec ripple"><div class="ec-av" style="background:#7c5cfc">A</div><div><div class="ec-name">Alex</div><div class="ec-num">+1 555-456-7890</div></div><span class="ec-call">📞</span></div>
+              <div class="ec clickable"><div class="ec-av" style="background:#e53e3e">M</div><div><div class="ec-name">Mom</div><div class="ec-num">+1 555-123-4567</div></div><span class="ec-call">📞</span></div>
+              <div class="ec clickable"><div class="ec-av" style="background:#3182ce">D</div><div><div class="ec-name">Dad</div><div class="ec-num">+1 555-987-6543</div></div><span class="ec-call">📞</span></div>
+              <div class="ec clickable"><div class="ec-av" style="background:#7c5cfc">A</div><div><div class="ec-name">Alex</div><div class="ec-num">+1 555-456-7890</div></div><span class="ec-call">📞</span></div>
             </div>
 
-            <!-- Tools -->
             <div class="emg-tools-lbl">Emergency tools</div>
             <div class="emg-tools-grid">
-              <div class="etool ripple" onclick="activateTool(this)"><span>🏥</span><span>Medical info</span></div>
-              <div class="etool ripple" onclick="activateTool(this)"><span>🚨</span><span>Siren</span></div>
-              <div class="etool ripple" onclick="activateTool(this)"><span>🔦</span><span>Flashlight</span></div>
-              <div class="etool ripple" onclick="activateTool(this)"><span>❤️</span><span>Health check</span></div>
-              <div class="etool ripple" onclick="activateTool(this)"><span>🎤</span><span>Recording</span></div>
-              <div class="etool ripple" onclick="activateTool(this)"><span>🛡</span><span>Emg mode</span></div>
+              <div class="etool clickable" onclick="activateTool(this)"><span>🏥</span><span>Medical info</span></div>
+              <div class="etool clickable" onclick="activateTool(this)"><span>🚨</span><span>Siren</span></div>
+              <div class="etool clickable" onclick="activateTool(this)"><span>🔦</span><span>Flashlight</span></div>
+              <div class="etool clickable" onclick="activateTool(this)"><span>❤️</span><span>Health check</span></div>
+              <div class="etool clickable" onclick="activateTool(this)"><span>🎤</span><span>Recording</span></div>
+              <div class="etool clickable" onclick="activateTool(this)"><span>🛡</span><span>Emg mode</span></div>
             </div>
+            <div style="height:1rem"></div>
           </div>
           <div class="navbar" style="background:#0c0303">
             <span class="nb">|||</span>
             <span class="nb">⬜</span>
-            <span class="nb tappable" onclick="goBack()">‹</span>
+            <span class="nb clickable" onclick="goBack()">‹</span>
           </div>
         </div>
 
       </div><!-- /phone-screen -->
-
-      <!-- Toast -->
       <div class="toast" id="toast"></div>
     </div><!-- /phone-shell -->
 
     <div class="lbl-wrap">
       <div class="scr-lbl" id="scr-lbl">Home Screen</div>
-      <div class="scr-sub" id="scr-sub">Tap the search bar · App Library · Emergency</div>
+      <div class="scr-sub" id="scr-sub">Scroll down · Tap search · App Library · Emergency</div>
     </div>
-  </div><!-- /phone-wrap -->
+  </div>
 
-  <!-- RIGHT INFO PANEL -->
+  <!-- RIGHT INFO -->
   <div class="info-panel">
     <div class="info-box">
       <div class="ib-eye">Current Screen</div>
       <div class="ib-title" id="ib-title">Home Screen</div>
-      <div class="ib-desc" id="ib-desc">Centralized hub — search, frequent apps, core actions, emergency access.</div>
+      <div class="ib-desc" id="ib-desc">Scroll the home screen down to see notifications and suggested apps.</div>
     </div>
     <div class="info-box">
       <div class="ib-eye">Tap to navigate</div>
@@ -438,12 +441,22 @@
       <div class="kpi"><div class="kn p">↑28%</div><div class="kl">SUS Score</div></div>
     </div>
     <div class="info-box" style="border-color:rgba(52,211,153,.22)">
-      <div class="ib-eye" style="color:var(--green)">Prototype Info</div>
-      <div class="ib-desc">Live search · A–Z jump · Draggable sliders · Toggle states · Slide-to-call gesture</div>
+      <div class="ib-eye" style="color:var(--green)">All Interactions</div>
+      <div class="ib-desc">
+        Scroll all screens ✓<br/>
+        Live search typing ✓<br/>
+        A–Z letter jump ✓<br/>
+        Add/remove pinned ✓<br/>
+        Tap any app to open ✓<br/>
+        Toggle on/off ✓<br/>
+        Drag sliders ✓<br/>
+        Slide to call ✓<br/>
+        Reset QS ✓
+      </div>
     </div>
   </div>
 
-</div><!-- /layout -->
+</div>
 <script src="script.js"></script>
 </body>
 </html>
